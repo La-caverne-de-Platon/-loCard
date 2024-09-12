@@ -58,6 +58,9 @@
             <div class="col-md-4">
                 <button class="btn btn-dark btn-category" onclick="drawCard('vasSavoir')">Vas savoir !</button>
             </div>
+            <div class="col-md-4">
+                <button class="btn btn-secondary btn-category" onclick="drawCard('stratageme')">Stratagème</button>
+            </div>
         </div>
     </div>
 
@@ -91,7 +94,8 @@
             pourContre: "Choisissez un sujet où une position pour ou contre. L'équipe adverse soutiendra l'autre position. À tour de rôle, chaque équipe énonce un argument en faveur de sa thèse. La dernière équipe qui prouve un argument à gagner.",
             sansParole: "Il faut faire deviner à votre équipe, en 1 minute, la situation ou l'expression de votre choix, en mimant, ou en n'utilisant PAS plus de trois mots qui ne figurent pas dans l'expression.",
             sousContrainte: "Effectuez une tâche indiquée selon des contraintes possibles en salle de classe.",
-            vasSavoir: "Répondre correctement à une des questions suivantes, en moins de 10 secondes."
+            vasSavoir: "Répondre correctement à une des questions suivantes, en moins de 10 secondes.",
+            stratageme: "Utilisez un stratagème tiré de 'L'art d'avoir toujours raison' de Schopenhauer pour convaincre ou réfuter un argument sur un sujet clivant."
         };
 
         // Sujets pour chaque catégorie
@@ -814,7 +818,133 @@
                 "Quelle est la plus haute montagne d'Amérique du Sud ?\n - Aconcagua (Aconcagua)\n - Cotopaxi\n - Chimborazo",
                 "Quel est l'aliment de base en Asie ?\n - Blé\n - Riz (Riz)\n - Maïs",
                 "Quel est le pays d'origine de la bière ?\n - Allemagne (Allemagne)\n - France\n - Espagne"
-            ]
+            ],
+            stratageme: [
+    {
+        "explication": "Stratagème n°1 : Exagérer la position de l'adversaire. Amplifie les propos de ton adversaire pour les rendre plus faciles à attaquer.",
+        "sujet": "Le port obligatoire de l'uniforme à l'école."
+    },
+    {
+        "explication": "Stratagème n°2 : Attaquer la personne, pas l'argument. Quand tu ne peux pas réfuter les arguments, critique la personne qui les présente.",
+        "sujet": "La légalisation du cannabis."
+    },
+    {
+        "explication": "Stratagème n°3 : Généraliser à l'excès. Transforme un cas particulier en une généralité pour affaiblir l'argument de l'autre.",
+        "sujet": "Les réseaux sociaux sont-ils dangereux pour les jeunes ?"
+    },
+    {
+        "explication": "Stratagème n°4 : Détourner le sujet. Si tu es en difficulté, change subtilement de sujet pour éviter de répondre.",
+        "sujet": "L'euthanasie pour les malades en phase terminale."
+    },
+    {
+        "explication": "Stratagème n°5 : Utiliser des arguments émotionnels. Si la logique ne te suffit pas, fais appel aux émotions pour convaincre.",
+        "sujet": "La chasse doit-elle être interdite ?"
+    },
+    {
+        "explication": "Stratagème n°6 : Amener l'autre à contredire ses propres paroles. Trouve une contradiction dans ce qu'a dit ton adversaire et exploite-la.",
+        "sujet": "La peine de mort doit-elle être rétablie ?"
+    },
+    {
+        "explication": "Stratagème n°7 : Demander des détails inutiles. Oblige ton adversaire à se perdre dans des détails pour qu'il s'éloigne de son point principal.",
+        "sujet": "Le droit de vote à 16 ans."
+    },
+    {
+        "explication": "Stratagème n°8 : Ridiculiser l'argument adverse. Si tu ne peux pas réfuter un argument, essaie de le tourner en dérision.",
+        "sujet": "La suppression des allocations familiales pour les foyers aisés."
+    },
+    {
+        "explication": "Stratagème n°9 : Utiliser un argument d'autorité. Si tu n'as pas de preuves solides, cite une personne célèbre ou une source respectée.",
+        "sujet": "La vaccination obligatoire pour tous."
+    },
+    {
+        "explication": "Stratagème n°10 : Défendre une position extrême pour forcer l'autre à reculer. Fais des affirmations exagérées pour pousser ton adversaire à nuancer son propos.",
+        "sujet": "La gratuité des transports en commun."
+    },
+    {
+        "explication": "Stratagème n°11 : Utiliser des analogies trompeuses. Comparer deux situations qui semblent similaires mais qui ne le sont pas vraiment.",
+        "sujet": "La vidéosurveillance dans les lieux publics."
+    },
+    {
+        "explication": "Stratagème n°12 : Refuser d'admettre qu'on a tort, même si l'évidence est contre soi. Continue à défendre ta position coûte que coûte.",
+        "sujet": "Les quotas de femmes dans les conseils d'administration."
+    },
+    {
+        "explication": "Stratagème n°13 : Attaquer un argument que ton adversaire n'a pas utilisé. Crée un faux argument que ton adversaire n'a pas formulé, puis réfute-le.",
+        "sujet": "Le droit à l'anonymat sur les réseaux sociaux."
+    },
+    {
+        "explication": "Stratagème n°14 : Utiliser des expressions vagues. Si ton argument est faible, utilise des termes flous pour ne pas être contredit facilement.",
+        "sujet": "La suppression des notes à l'école."
+    },
+    {
+        "explication": "Stratagème n°15 : Jouer sur les mots. Tire avantage de l'ambiguïté d'un mot pour détourner l'argument de ton adversaire.",
+        "sujet": "La consommation de viande doit-elle être réduite pour sauver la planète ?"
+    },
+    {
+        "explication": "Stratagème n°16 : Accuser l'autre d'avoir des intentions cachées. Insinue que ton adversaire défend une position pour des raisons personnelles.",
+        "sujet": "Les riches doivent-ils payer plus d'impôts ?"
+    },
+    {
+        "explication": "Stratagème n°17 : Changer le sens des mots de ton adversaire. Réinterprète ce qu'il dit pour le rendre absurde ou incorrect.",
+        "sujet": "La fermeture des frontières pour lutter contre l'immigration."
+    },
+    {
+        "explication": "Stratagème n°18 : Faire des affirmations sans preuves. Si personne ne te demande de justifier tes propos, tu n'as pas besoin de le faire.",
+        "sujet": "La privatisation des hôpitaux."
+    },
+    {
+        "explication": "Stratagème n°19 : Utiliser des exemples rares ou extrêmes pour généraliser. Prends un cas isolé pour en faire une règle générale.",
+        "sujet": "L'interdiction des trottinettes électriques en ville."
+    },
+    {
+        "explication": "Stratagème n°20 : Si tu es coincé, fais semblant de ne pas comprendre. Gagne du temps en demandant des clarifications inutiles.",
+        "sujet": "Les quotas de minorités dans les entreprises."
+    },
+    {
+        "explication": "Stratagème n°21 : Faire croire que la vérité est évidente. Si tu ne peux pas prouver un argument, prétends qu'il est tellement évident qu'il n'a pas besoin de preuve.",
+        "sujet": "L'interdiction de fumer dans les espaces publics."
+    },
+    {
+        "explication": "Stratagème n°22 : Faire appel à la majorité. Si beaucoup de gens croient à quelque chose, cela doit forcément être vrai.",
+        "sujet": "L'utilisation des réseaux sociaux par les moins de 16 ans."
+    },
+    {
+        "explication": "Stratagème n°23 : Créer un lien entre deux idées qui n'ont rien à voir. Insinue que deux événements sont liés sans aucune preuve.",
+        "sujet": "L'interdiction des fast-foods dans les écoles."
+    },
+    {
+        "explication": "Stratagème n°24 : Faire peur à l'adversaire. Utilise la peur pour convaincre, même s'il n'y a pas de danger réel.",
+        "sujet": "La fin de la monnaie physique pour passer au tout numérique."
+    },
+    {
+        "explication": "Stratagème n°25 : Faire diversion en attaquant un autre argument. Si tu ne peux pas réfuter un point, attaque un autre point, même si ce n'est pas le sujet principal.",
+        "sujet": "Le droit de vote pour les étrangers."
+    },
+    {
+        "explication": "Stratagème n°26 : Parler très vite pour noyer ton adversaire sous un flux d'informations. Cela l'empêchera de répondre clairement.",
+        "sujet": "La taxation des grandes entreprises pour financer la transition écologique."
+    },
+    {
+        "explication": "Stratagème n°27 : Utiliser des anecdotes personnelles. Si tu manques de preuves solides, raconte une histoire personnelle pour toucher émotionnellement.",
+        "sujet": "La suppression des zoos."
+    },
+    {
+        "explication": "Stratagème n°28 : Proposer une fausse alternative. Présente deux options extrêmes pour forcer ton adversaire à en choisir une, même si d'autres choix sont possibles.",
+        "sujet": "Le droit à l'euthanasie."
+    },
+    {
+        "explication": "Stratagème n°29 : Faire semblant de ne pas comprendre l'argument de l'adversaire pour le rendre confus.",
+        "sujet": "La gratuité des universités."
+    },
+    {
+        "explication": "Stratagème n°30 : Faire appel à des émotions fortes comme la colère ou la peur pour influencer l'audience.",
+        "sujet": "Le port obligatoire du casque pour les cyclistes."
+    },
+    {
+        "explication": "Stratagème n°31 : Conclusion rapide : Fais en sorte que l'audience pense que si un petit détail est vrai, tout l'argument est forcément vrai.",
+        "sujet": "L'interdiction de la publicité pour les produits polluants."
+    }
+]
         };
 
         // Fonction pour tirer une carte au hasard
@@ -822,14 +952,21 @@
             // Tirer un sujet au hasard
             const randomSubject = subjects[category][Math.floor(Math.random() * subjects[category].length)];
 
-            // Injecter l'instruction et le sujet dans le modal
-            document.getElementById('cardInstruction').innerText = instructions[category];
-            document.getElementById('cardSubject').innerText = randomSubject;
+            // Si c'est un stratagème, afficher explication + sujet, sinon juste le sujet
+            if (category === 'stratageme') {
+                document.getElementById('cardInstruction').innerText = randomSubject.explication;
+                document.getElementById('cardSubject').innerText = randomSubject.sujet;
+            } else {
+                document.getElementById('cardInstruction').innerText = instructions[category];
+                document.getElementById('cardSubject').innerText = randomSubject;
+            }
 
             // Afficher le modal
             const cardModal = new bootstrap.Modal(document.getElementById('cardModal'));
             cardModal.show();
         }
+
+
     </script>
 </body>
 
