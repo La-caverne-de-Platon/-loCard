@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élocard : Travailler l'éloquence</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-modal {
+            border-radius: 15px;
+            padding: 2rem;
+        }
+
+        .modal-header {
+            border-bottom: none;
+        }
+
+        .modal-body {
+            font-size: 1rem;
+        }
+
+        .btn-category {
+            margin: 0.5rem;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-center my-5">
+        <h1 class="mb-4">Élocard</h1>
+        <p>Choisissez une catégorie pour tirer une carte au hasard :</p>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-4">
+                <button class="btn btn-primary btn-category" onclick="drawCard('pitch')">Pitch</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-success btn-category" onclick="drawCard('plaidoirie')">La plaidoirie</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-warning btn-category" onclick="drawCard('pourContre')">Pour ou contre</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-danger btn-category" onclick="drawCard('sansParole')">Sans parole</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-info btn-category" onclick="drawCard('sousContrainte')">Sous contrainte</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-dark btn-category" onclick="drawCard('vasSavoir')">Vas savoir !</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content card-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cardModalLabel">Carte</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5 id="cardInstruction"></h5>
+                    <p id="cardSubject"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap & JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Instructions fixes pour chaque catégorie
+        const instructions = {
+            pitch: "Vous avez 1m30 au maximum pour inventer la suite de la phrase qui est donnée. Vous allez devoir placer 3 mots, que vont deviner les autres.",
+            plaidoirie: "Faire deviner un personnage fictif en se mettant dans la peau d'un avocat qui l'accuserait ou qui défendrait sa cause.",
+            pourContre: "Choisissez un sujet où une position pour ou contre. L'équipe adverse soutiendra l'autre position. À tour de rôle, chaque équipe énonce un argument en faveur de sa thèse. La dernière équipe qui prouve un argument à gagner.",
+            sansParole: "Il faut faire deviner à votre équipe, en 1 minute, la situation ou l'expression de votre choix, en mimant, ou en n'utilisant PAS plus de trois mots qui ne figurent pas dans l'expression.",
+            sousContrainte: "Effectuez une tâche indiquée selon des contraintes possibles en salle de classe.",
+            vasSavoir: "Répondre correctement à une des questions suivantes, en moins de 10 secondes."
+        };
+
+        // Sujets pour chaque catégorie
+        const subjects = {
+            pitch: [
+                "\"J'ai toujours manqué de courage, mais là\"\n - meute\n - enragée\n - cran d'arrêt",
+                "J'ai rêvé que je pouvais voler, mais soudain...\n - nuage\n - océan\n - foudre",
+                "Un jour, dans une forêt lointaine...\n - arbre\n - loup\n - clair de lune"
+            ],
+            plaidoirie: [
+                "Jean Valjean", 
+                "Gaston Lagaffe", 
+                "Robin des Bois", 
+                "Astérix", 
+                "Picsou", 
+                "Oui-oui"
+            ],
+            pourContre: [
+                "La réouverture des maisons closes.",
+                "Les anniversaires surprise.",
+                "La discrimination positive.",
+                "Le crédit à la consommation.",
+                "Le réveillon du nouvel an.",
+                "L'anonymat sur les réseaux sociaux."
+            ],
+            sansParole: [
+                "Céder sa place à une femme enceinte dans le métro",
+                "Avoir une envie pressante",
+                "Tu veux une gifle ?",
+                "Chercher ses lunettes alors qu'elles sont sur sa tête",
+                "Se gratter le dos en public"
+            ],
+            sousContrainte: [
+                "Malgré le bruit et tout autres perturbations qu'ont le droit de faire vos adversaires, récitez la table de multiplication de 8",
+                "Malgré le bruit et tout autres perturbations qu'ont le droit de faire vos adversaires, récitez l'alphabet à l'envers",
+                "Malgré le bruit et tout autres perturbations qu'ont le droit de faire vos adversaires, récitez le refrain de la Marseillaise",
+                "Malgré le bruit et tout autres perturbations qu'ont le droit de faire vos adversaires, récitez un poème célèbre tout en sautant sur une jambe."
+            ],
+            vasSavoir: [
+                "Combien de mots contient un dictionnaire usuel ?\n - Environ quarante mille mots\n - Environ soixante mille mots\n - Environ cent mille mots",
+                "Quelle est la capitale de l'Australie ?\n - Canberra\n - Sydney\n - Melbourne",
+                "Combien de continents y a-t-il sur Terre ?\n - 5\n - 6\n - 7"
+            ]
+        };
+
+        // Fonction pour tirer une carte au hasard
+        function drawCard(category) {
+            // Tirer un sujet au hasard
+            const randomSubject = subjects[category][Math.floor(Math.random() * subjects[category].length)];
+
+            // Injecter l'instruction et le sujet dans le modal
+            document.getElementById('cardInstruction').innerText = instructions[category];
+            document.getElementById('cardSubject').innerText = randomSubject;
+
+            // Afficher le modal
+            const cardModal = new bootstrap.Modal(document.getElementById('cardModal'));
+            cardModal.show();
+        }
+    </script>
+</body>
+
+</html>
